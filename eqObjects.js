@@ -105,7 +105,7 @@ const compareValues = function(val1, val2) {
   } else {
     return false;
   }
-}
+};
 
 const ab = { a: "1", b: "2" , d: "6", c: "4"};
 const ba = { b: "2", a: "1" , c: "4", d: "6"};
@@ -120,3 +120,5 @@ console.log(eqObjects(cd, dc)); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 console.log(eqObjects(cd, cd2)); // => false
+
+console.log(assertEqual(eqObjects(ab, ba), false));

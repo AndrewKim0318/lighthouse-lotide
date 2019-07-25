@@ -1,3 +1,4 @@
+
 const eqArrays = function(arr1, arr2) {
   // input: two arrays
   // output: boolean, True if arr1 is equivalent to arr2, False if arr1 is not equivalent to arr2
@@ -36,45 +37,24 @@ const assertArraysEqual = function(arr1, arr2) {
     result += `🔴Assertion Failed: [${arr1}] !== [${arr2}]`;
   }
 
-  console.log(result);
-};
-
-const letterPosition = function(sentence) {
-  // input : a string
-  // output : an object that displays where each letter appears in the string (all the indices will be shown if there are multiple)
-  
-  let result = {};
-
-  for (let letter of sentence) {
-    if (letter in result) {
-      continue;
-    } else if (letter === " ") {
-      continue;
-    } else {
-      let indices = storeIndex(sentence, letter);
-      result[letter] = indices;
-    }
-  }
-
   return result;
 };
 
-const storeIndex = function(string, key) {
-  // input : a string and a letter
-  // output : an array that shows where the letter appears within the string
+assertArraysEqual([1,2,3], [1,2,3]);
 
-  let indices = [];
-  let count = 0;
+const words = ["ground", "control", "to", "major", "tom"];
 
-  for (let letter of string) {
-    if (letter === key) {
-      indices.push(count);
-    }
-    count++;
+const map = function(array, callback) {
+
+  const results = [];
+  
+  for (let item of array) {
+    results.push(callback(item));
   }
+  
+  return results;
 
-  return indices;
 };
 
-console.log(letterPosition("lighthouse in the house"));
-console.log(assertArraysEqual(letterPosition("hello").e, [1]));
+const results1 = map(words, word => word[0]);
+console.log(assertArraysEqual(results1, ["g", "c", "t", "m", "t"]));
