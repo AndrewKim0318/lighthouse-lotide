@@ -19,7 +19,9 @@ const eqArrays = function(arr1, arr2) {
   if (arr1.length === arr2.length) {
     // if the length of arr1 and arr2 are the same, test to see if arr1[index] == arr2[index]
     for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] === arr2[i]) {
+      if (Array.isArray(arr1[i])) {
+        equal =  eqArrays(arr1[i], arr2[i]);
+      } else if (arr1[i] === arr2[i]) {
         equal = true;
       } else {
         equal = false;
@@ -41,3 +43,8 @@ console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
 console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
 
 console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true));
+
+console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // => true
+
+console.log(eqArrays([[2, 3], [4,[5, 6]]], [[2, 3], [4, [5,6]]])); // => false
+console.log(eqArrays([[2, 3], [4]], [[2, 3], 4])); // => false
