@@ -54,6 +54,8 @@ const eqObjects = function(object1, object2) {
           equalObjects = false;
           break;
         }
+      } else if (object1[key] instanceof Object) {
+        equalObjects = eqObjects(object1[key], object2[key]);
       } else {
         let equal = compareValues(object1[key], object2[key]);
         if (equal !== true) {
@@ -122,3 +124,8 @@ const cd2 = { c: "1", d: ["2", 3, 4] };
 console.log(eqObjects(cd, cd2)); // => false
 
 console.log(assertEqual(eqObjects(ab, ba), false));
+
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }));// => true
+
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }));// => false
+console.log(eqObjects({ a: {y:0, z:{c:4, d:5}}, b: 2 }, { a: {y:0, z:{c:4, d:5}}, b: 2 })); // => true
