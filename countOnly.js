@@ -1,16 +1,4 @@
-const assertEqual = function(actual, expected) {
-  const inputOne = actual;
-  const inputTwo = expected;
-  let result = "";
-  if (inputOne === inputTwo) {
-    result += `✅Assertion Passed: ${inputOne} === ${inputTwo}`;
-  } else {
-    result += `🔴Assertion Failed: ${inputOne} !== ${inputTwo}`;
-  }
-  return result;
-};
-
-
+const assertEqual = require('./assertEqual');
 
 // allItems: an array of strings that we need to look through
 // itemsToCount: an object specifying what to count
@@ -58,10 +46,6 @@ const firstNames = [
   "Joe"
 ];
 
-console.log(countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true }));
-
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
 
-console.log(assertEqual(result1["Jason"], 1));
-console.log(assertEqual(result1["Karima"], undefined));
-console.log(assertEqual(result1["Fang"], 2));
+module.exports = countAppearance, countOnly;

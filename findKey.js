@@ -1,14 +1,4 @@
-const assertEqual = function(actual, expected) {
-  const inputOne = actual;
-  const inputTwo = expected;
-  let result = "";
-  if (inputOne === inputTwo) {
-    result += `✅Assertion Passed: ${inputOne} === ${inputTwo}`;
-  } else {
-    result += `🔴Assertion Failed: ${inputOne} !== ${inputTwo}`;
-  }
-  return result;
-};
+const assertEqual = require('./assertEqual');
 
 const checkCondition = function(condition, conditionCriteria) {
   // input : a condition you want to check and the condition criteria you want to compare the condition to pass
@@ -40,11 +30,12 @@ const findKey = function(object, condition) {
   return foundKey;
 };
 
-console.log(findKey({
-  "Blue Hill": { stars: 1 },
-  "Akaleri":   { stars: 3 },
-  "noma":      { stars: 2 },
-  "elBulli":   { stars: 3 },
-  "Ora":       { stars: 2 },
-  "Akelarre":  { stars: 3 }
-}, x => x.stars === 1));
+module.exports = checkCondition, findKey;
+// console.log(findKey({
+//   "Blue Hill": { stars: 1 },
+//   "Akaleri":   { stars: 3 },
+//   "noma":      { stars: 2 },
+//   "elBulli":   { stars: 3 },
+//   "Ora":       { stars: 2 },
+//   "Akelarre":  { stars: 3 }
+// }, x => x.stars === 1));

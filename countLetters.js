@@ -42,4 +42,5 @@ const countAppearance =  function(string, key) {
   return count;
 };
 
-console.log(countLetters("lighthouse in the house"));
+module.exports = countLetters, countAppearance;
+// console.log(countLetters("lighthouse in the house"));
