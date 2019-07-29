@@ -1,15 +1,3 @@
-const assertEqual = function(actual, expected) {
-  const inputOne = actual;
-  const inputTwo = expected;
-  let result = "";
-  if (inputOne === inputTwo) {
-    result += `✅Assertion Passed: ${inputOne} === ${inputTwo}`;
-  } else {
-    result += `🔴Assertion Failed: ${inputOne} !== ${inputTwo}`;
-  }
-  return result;
-};
-
 const eqArrays = function(arr1, arr2) {
   // input: two arrays
   // output: boolean, True if arr1 is equivalent to arr2, False if arr1 is not equivalent to arr2
@@ -36,15 +24,4 @@ const eqArrays = function(arr1, arr2) {
   return equal;
 };
 
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
-
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
-
-console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true));
-
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // => true
-
-console.log(eqArrays([[2, 3], [4,[5, 6]]], [[2, 3], [4, [5,6]]])); // => true
-console.log(eqArrays([[2, 3], [4]], [[2, 3], 4])); // => false
+module.exports = eqArrays;

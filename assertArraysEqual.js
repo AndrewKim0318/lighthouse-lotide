@@ -1,17 +1,3 @@
-const assertEqual = function(actual, expected) {
-  // input: two arguements
-  // output: a message reminding user if the two arguements are equal or unequal
-  const inputOne = actual;
-  const inputTwo = expected;
-  let result = "";
-  if (inputOne === inputTwo) {
-    result += `✅Assertion Passed: ${inputOne} === ${inputTwo}`;
-  } else {
-    result += `🔴Assertion Failed: ${inputOne} !== ${inputTwo}`;
-  }
-  return result;
-};
-
 const eqArrays = function(arr1, arr2) {
   // input: two arrays
   // output: boolean, True if arr1 is equivalent to arr2, False if arr1 is not equivalent to arr2
@@ -54,3 +40,4 @@ const assertArraysEqual = function(arr1, arr2) {
 };
 
 assertArraysEqual([1,2,3], [1,2,3]);
+module.exports = assertArraysEqual;
