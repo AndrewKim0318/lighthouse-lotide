@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
-const eqArrays = require('./eqArraysTest');
-const tail = require('../tail');
-
+const index = require('../index');
+const eqArrays = index.eqArrays;
+const tail = index.tail;
 //TEST CODE
 describe("#tail", () => {
   it("returns [2,3] for [1, 2, 3, 4]", () => {
